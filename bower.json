@@ -1,0 +1,17 @@
+{
+  "name": "alpaca.js-demo",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Sergey Dmitriev <serge.dmitriev@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/antirek/alpaca.js-demo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
