@@ -14,6 +14,8 @@ block content
 
 
     // Large modal
+    div#button 
+
     button.btn.btn-primary(type='button', data-toggle='modal', data-target='.bs-example-modal-lg') Large modal
 
     .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel')
@@ -23,11 +25,28 @@ block content
 
 
     script(type='text/javascript').
-        var serverUrl = 'http://localhost:3000/configs/#{key}';
+
+        var WForm = function (options) {
+            var loadConfig = function (cb) {
+              var serverUrl = 'http://localhost:3000/configs/' + options['key'];
+              $.getJSON(serverUrl, cb); 
+            };
+
+            var bind = function (selector, form) {
+              $(selector).alpaca(form);
+            };
+
+            return {
+              loadConfig: loadConfig,
+              bind: bind
+            };
+        };
 
         $(document).ready(function() {
-            $.getJSON(serverUrl, function(data) {
-              
-                $("#form").alpaca(data);
+            var wForm = new WForm({key: '#{key}'});
+
+            wForm.loadConfig(function (data) {
+                wForm.bind('#form', data.form);
             });
+
         });

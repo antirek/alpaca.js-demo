@@ -13,6 +13,11 @@ router.get('/show/:key', function(req, res, next) {
 });
 
 
+router.post('/send/:key', function (req, res, next) {
+	res.send(req.body);
+});
+
+
 router.get('/configs/:key', function(req, res, next) {
   var key = req.params.key;
   res.setHeader('Content-Type', 'application/json');
