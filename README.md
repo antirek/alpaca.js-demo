@@ -8,3 +8,16 @@
 
 2. embed form in page with single line
 
+
+
+## prepare use
+
+> git clone
+
+> npm install
+
+> gulp
+
+> npm start
+
+go to http://localhost:3000/
