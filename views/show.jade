@@ -1,69 +1,23 @@
 extends layout
 
 block content
+    
+    
+
+
+    button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#myModal') просто кнопка
+
+    div.main
+
+    table
+      tr
+        td
+
+          div#container
+        
+
+
     script(type='text/javascript', src='/include/widget.js')
     link(type='text/css', rel='stylesheet', href='/include/style.css')  
+
     
-    // jquery
-    //script(type='text/javascript', src='//code.jquery.com/jquery-2.1.4.min.js')
-    
-    // bootstrap
-    //link(type='text/css', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
-    //script(type='text/javascript', src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
-    // handlebars
-    //script(type='text/javascript', src='//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js')
-    // alpaca
-    //link(type='text/css', href='//code.cloudcms.com/alpaca/1.5.17/bootstrap/alpaca.min.css', rel='stylesheet')
-    //script(type='text/javascript', src='//code.cloudcms.com/alpaca/1.5.17/bootstrap/alpaca.min.js')
-
-    button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#myModal') fsdfsdf
-
-    // Large modal
-    div.tbl_wrapper
-
-      // Button trigger modal
-      button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#myModal')
-        | Launch demo modal
-      // Modal
-
-
-      #myModal.modal(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-        .modal-dialog(role='document')
-          .modal-content
-            .modal-body
-              #form
-
-
-      script.
-        jQmbl('#myModal').on('shown.bs.modal', function (event) {
-          jQmbl(".modal-backdrop").css('z-index','-1');
-        })
-
-
-    script(type='text/javascript').
-        window.jQuery = jQmbl;
-
-        var WForm = function (options) {
-            var loadConfig = function (cb) {
-              var serverUrl = 'http://localhost:3000/configs/' + options['key'];
-              window.jQuery.getJSON(serverUrl, cb); 
-            };
-
-            var bind = function (selector, form) {
-              window.jQuery(selector).alpaca(form);
-            };
-
-            return {
-              loadConfig: loadConfig,
-              bind: bind
-            };
-        };
-
-        window.jQuery(document).ready(function() {
-            var wForm = new WForm({key: '#{key}'});
-
-            wForm.loadConfig(function (data) {
-                wForm.bind('#form', data.form);
-            });
-
-        });

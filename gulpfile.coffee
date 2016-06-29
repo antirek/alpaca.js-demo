@@ -103,10 +103,10 @@ gulp.task 'js:build', ()->
 
 gulp.task 'js:build-minify', ()->
   gulp.src [
-    './bower_components/jquery/dist/jquery.js',
-    './bower_components/fetch/fetch.js',
-    './bower_components/promise-polyfill/Promise.js',
-    './bower_components/webcall-mobilon.js/js/webcall.js',
+    './bower_components/jquery/dist/jquery.min.js',
+    './bower_components/bootstrap/dist/js/bootstrap.min.js',
+    './bower_components/handlebars/handlebars.min.js',
+    './bower_components/alpaca/dist/alpaca/bootstrap/alpaca.min.js'
     './src/javascript/widget.coffee'
   ]
   .pipe gulpif(/[.]coffee$/, coffee({bare: true}))
