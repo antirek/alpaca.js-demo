@@ -1,33 +1,47 @@
 extends layout
 
 block content
+    script(type='text/javascript', src='/include/widget.js')
+    link(type='text/css', rel='stylesheet', href='/include/style.css')  
+    
     // jquery
     //script(type='text/javascript', src='//code.jquery.com/jquery-2.1.4.min.js')
-    script(type='text/javascript', src='/script/widget.js')
+    
     // bootstrap
-    link(type='text/css', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+    //link(type='text/css', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
     //script(type='text/javascript', src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
     // handlebars
     //script(type='text/javascript', src='//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js')
     // alpaca
-    link(type='text/css', href='//code.cloudcms.com/alpaca/1.5.17/bootstrap/alpaca.min.css', rel='stylesheet')
+    //link(type='text/css', href='//code.cloudcms.com/alpaca/1.5.17/bootstrap/alpaca.min.css', rel='stylesheet')
     //script(type='text/javascript', src='//code.cloudcms.com/alpaca/1.5.17/bootstrap/alpaca.min.js')
 
-    
-
+    button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#myModal') fsdfsdf
 
     // Large modal
-    div#button 
+    div.tbl_wrapper
 
-    button.btn.btn-primary(type='button', data-toggle='modal', data-target='.bs-example-modal-lg') Large modal
+      // Button trigger modal
+      button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#myModal')
+        | Launch demo modal
+      // Modal
 
-    .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel')
-      .modal-dialog.modal-lg
-        .modal-content
-          #form
+
+      #myModal.modal(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-body
+              #form
+
+
+      script.
+        jQmbl('#myModal').on('shown.bs.modal', function (event) {
+          jQmbl(".modal-backdrop").css('z-index','-1');
+        })
 
 
     script(type='text/javascript').
+        window.jQuery = jQmbl;
 
         var WForm = function (options) {
             var loadConfig = function (cb) {

@@ -1,0 +1,1 @@
+jQmbl = $.noConflict true
