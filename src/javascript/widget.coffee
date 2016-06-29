@@ -7,6 +7,25 @@ app =
 
 jQmbl('#container').addClass('tbl_wrapper').append(app.tpl)
 
+loadStyles = (callback)->
+  id = 'widget_styles'
+
+  if !document.getElementById(id)
+    head  = document.getElementsByTagName('head')[0]
+    style = document.createElement('style')
+    style.id = 'mbl_widget_styles'
+    style.type = 'text/css'
+    style.media = 'all';
+    if style.styleSheet
+      style.styleSheet.cssText = app.styles
+    else
+      style.appendChild(document.createTextNode(app.styles))
+
+    head.appendChild(style)
+    callback() if typeof(callback) == 'function'
+
+
+loadStyles()
 
 WForm = (options) ->
   loadConfig = (cb)->
@@ -31,3 +50,4 @@ jQmbl "#myModal"
   .on "shown.bs.modal", (event)->
     jQmbl ".modal-backdrop"
       .css "z-index", "-1";
+
