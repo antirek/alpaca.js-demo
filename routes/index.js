@@ -26,19 +26,24 @@ router.get('/configs/:key', function(req, res, next) {
 });
 
 
-router.get('/include/widget.js', function(req, res, next) {
+router.get('/include/widget.js/:key', function(req, res, next) {
+  var key = req.params.key;
+  console.log('key:', key);
+
   var contents = fs.readFileSync(path.resolve(__dirname + '/../build/widget.js'), 'utf8');
+  contents = contents.replace(/@@@key@@@/g, key);
 
   res.set('Content-Type', 'text/javascript');
   res.send(contents);
 });
 
+/*
 router.get('/include/style.css', function(req, res, next) {
   var contents = fs.readFileSync(path.resolve(__dirname + '/../build/css/widget.css'), 'utf8');
 
   res.set('Content-Type', 'text/css');
   res.send(contents);
 });
-
+*/
 
 module.exports = router;

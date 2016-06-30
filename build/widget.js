@@ -103,10 +103,20 @@ WForm = function(options) {
 };
 
 wForm = new WForm({
-  key: 'demo'
+  key: '@@@key@@@'
 });
 
 wForm.loadConfig(function(data) {
+  data.form.options.form.attributes.action = "http://localhost:3000/send/@@@key@@@";
+  data.form.options.form.buttons.submit.click = function() {
+    return this.ajaxSubmit().done(function() {
+      console.log('send');
+      jQmbl('#form').alpaca("destroy");
+      return jQmbl('#form').html('thanks!!!');
+    }).fail(function() {
+      return console.log('fail');
+    });
+  };
   return wForm.bind('#form', data.form);
 });
 

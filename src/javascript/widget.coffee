@@ -38,9 +38,19 @@ WForm = (options) ->
   loadConfig: loadConfig
   bind: bind
 
-wForm = new WForm({key: 'demo'});
+wForm = new WForm({key: '@@@key@@@'});
 
 wForm.loadConfig (data)->
+  data.form.options.form.attributes.action = "http://localhost:3000/send/@@@key@@@";
+  data.form.options.form.buttons.submit.click = ()->
+    this.ajaxSubmit()
+      .done ()->
+        console.log 'send'
+        jQmbl('#form').alpaca("destroy");
+        jQmbl('#form').html('thanks!!!');
+      .fail ()->
+        console.log 'fail'
+    
   wForm.bind '#form', data.form
             
 
