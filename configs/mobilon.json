@@ -1,0 +1,62 @@
+{
+    "element": {
+        "selector": "#button",
+        "title": "Оставить заявку",
+        "color": "",
+        "widthClass": "modal-sm"
+    },
+    "form": {
+        "schema": {
+        "title":"Обратная связь",
+        "description":"",
+        "type":"object",
+        "properties": {
+            "name": {
+                "type":"string",
+                "title":"Ваше имя"
+                },
+            "phone": {
+                "type":"string",
+                "title":"Телефон"
+                },
+            "email": {
+                "type":"string",
+                "title":"Электронная почта"
+                },
+            "comment": {
+                "type":"string",
+                "title":"Комментарий"
+                }
+            }
+        },
+        "options": {
+            "form":{
+                "attributes":{
+                    "action":"http://localhost:3000/send/@@@key@@@",
+                    "method":"post"
+                },
+                "buttons":{
+                    "submit":{}
+                }
+            },
+            "helper": "Оставьте нам свои контакты, и мы обязательно с вами свяжемся",
+            "fields": {
+                "name": {
+                    "size": 20
+                },
+                "phone" : {
+                    "size": 20
+                },
+                "email" : {
+                    "size": 20
+                },
+                "comment" : {
+                    "size": 20,
+                    "type": "textarea",
+                    "cols": 30,
+                    "rows": 3
+                }
+            }
+        }
+    }
+}

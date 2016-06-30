@@ -41,7 +41,14 @@ WForm = (options) ->
 wForm = new WForm({key: '@@@key@@@'});
 
 wForm.loadConfig (data)->
-  data.form.options.form.attributes.action = "http://localhost:3000/send/@@@key@@@";
+  jQmbl('#buttonEmbedded').html(data.element.title)
+  jQmbl('#buttonEmbedded').removeClass('hide')
+
+  jQmbl("#myModal .modal-dialog").addClass('modal-sm');
+
+  data.form.options.form.attributes.action = "http://localhost:3000/send/@@@key@@@"
+  data.form.options.form.attributes.method = "post"
+
   data.form.options.form.buttons.submit.click = ()->
     this.ajaxSubmit()
       .done ()->
@@ -61,3 +68,6 @@ jQmbl "#myModal"
     jQmbl ".modal-backdrop"
       .css "z-index", "-1";
 
+  .on "hide.bs.modal", (event)->
+    jQmbl ".modal-backdrop"
+      .hide()
