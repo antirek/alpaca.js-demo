@@ -29,7 +29,8 @@ loadStyles()
 
 WForm = (options) ->
   loadConfig = (cb)->
-    serverUrl = 'http://localhost:3000/configs/' + options['key'];
+    host = ''
+    serverUrl = host + '/configs/' + options['key'];
     jQmbl.getJSON(serverUrl, cb);
 
   bind = (selector, form)->

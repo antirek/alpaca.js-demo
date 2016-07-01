@@ -89,8 +89,9 @@ loadStyles();
 WForm = function(options) {
   var bind, loadConfig;
   loadConfig = function(cb) {
-    var serverUrl;
-    serverUrl = 'http://localhost:3000/configs/' + options['key'];
+    var host, serverUrl;
+    host = '';
+    serverUrl = host + '/configs/' + options['key'];
     return jQmbl.getJSON(serverUrl, cb);
   };
   bind = function(selector, form) {
