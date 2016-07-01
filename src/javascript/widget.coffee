@@ -28,7 +28,7 @@ loadStyles = (callback)->
 
 loadStyles()
 
-host = ''
+host = 'http://webform.mobilon.ru/'
 
 WForm = (options) ->
   loadConfig = (cb)->

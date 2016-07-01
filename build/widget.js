@@ -87,7 +87,7 @@ loadStyles = function(callback) {
 
 loadStyles();
 
-host = '';
+host = 'http://webform.mobilon.ru/';
 
 WForm = function(options) {
   var bind, loadConfig;
