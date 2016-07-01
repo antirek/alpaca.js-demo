@@ -27,9 +27,10 @@ loadStyles = (callback)->
 
 loadStyles()
 
+host = ''
+
 WForm = (options) ->
   loadConfig = (cb)->
-    host = ''
     serverUrl = host + '/configs/' + options['key'];
     jQmbl.getJSON(serverUrl, cb);
 
@@ -47,7 +48,7 @@ wForm.loadConfig (data)->
 
   jQmbl("#myModal .modal-dialog").addClass(data.element.dialogWidthClass) if data.element.dialogWidthClass
 
-  data.form.options.form.attributes.action = "http://localhost:3000/send/@@@key@@@"
+  data.form.options.form.attributes.action = host + "/send/@@@key@@@"
   data.form.options.form.attributes.method = "post"
 
   data.form.options.form.buttons.submit.click = ()->
