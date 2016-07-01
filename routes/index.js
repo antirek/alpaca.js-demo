@@ -3,6 +3,10 @@ var router = express.Router();
 var path = require('path');
 var fs = require('fs');
 
+var config = require('../config');
+var Mail = require('../actions/mail');
+
+var mail = new Mail(config.mail);
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -16,6 +20,8 @@ router.get('/show/:key', function(req, res, next) {
 
 router.post('/send/:key', function (req, res, next) {
 	res.send(req.body);
+
+  mail.send('serge.dmitriev@gmail.com', 'test', JSON.stringify(req.body));
 });
 
 
