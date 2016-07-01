@@ -110,7 +110,9 @@ wForm = new WForm({
 wForm.loadConfig(function(data) {
   jQmbl('#buttonEmbedded').html(data.element.title);
   jQmbl('#buttonEmbedded').removeClass('hide');
-  jQmbl("#myModal .modal-dialog").addClass('modal-sm');
+  if (data.element.dialogWidthClass) {
+    jQmbl("#myModal .modal-dialog").addClass(data.element.dialogWidthClass);
+  }
   data.form.options.form.attributes.action = "http://localhost:3000/send/@@@key@@@";
   data.form.options.form.attributes.method = "post";
   data.form.options.form.buttons.submit.click = function() {

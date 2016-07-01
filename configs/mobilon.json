@@ -3,7 +3,7 @@
         "selector": "#button",
         "title": "Оставить заявку",
         "color": "",
-        "widthClass": "modal-sm"
+        "dialogWidthClass": "modal-sm"
     },
     "form": {
         "schema": {

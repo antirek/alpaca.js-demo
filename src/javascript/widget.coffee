@@ -45,7 +45,7 @@ wForm.loadConfig (data)->
   jQmbl('#buttonEmbedded').html(data.element.title)
   jQmbl('#buttonEmbedded').removeClass('hide')
 
-  jQmbl("#myModal .modal-dialog").addClass('modal-sm');
+  jQmbl("#myModal .modal-dialog").addClass(data.element.dialogWidthClass) if data.element.dialogWidthClass
 
   data.form.options.form.attributes.action = "http://localhost:3000/send/@@@key@@@"
   data.form.options.form.attributes.method = "post"
