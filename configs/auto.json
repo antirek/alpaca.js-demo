@@ -1,13 +1,13 @@
 {
     "element": {
         "selector": "#button",
-        "title": "Оставить контакты",
+        "title": "Записаться на тест-драйв",
         "color": "",
         "dialogWidthClass": "modal-sm"
     },
     "form": {
         "schema": {
-        "title":"Обратная связь",
+        "title":"Тест-драйв Hyundai Accent",
         "description":"",
         "type":"object",
         "properties": {
@@ -19,13 +19,10 @@
                 "type":"string",
                 "title":"Телефон"
                 },
-            "email": {
-                "type":"string",
-                "title":"Электронная почта"
-                },
-            "comment": {
-                "type":"string",
-                "title":"Комментарий"
+            "date": {
+                "title":"Желаемая дата",
+                "type": "string",
+                "format": "date"
                 }
             }
         },
@@ -39,7 +36,7 @@
                     "submit":{}
                 }
             },
-            "helper": "Оставьте нам свои контакты, и мы обязательно с вами свяжемся",
+            "helper": "Оставьте нам свои контакты, и мы свяжемся с вами и уточним все детали",
             "fields": {
                 "name": {
                     "size": 20
@@ -51,10 +48,8 @@
                     "size": 20
                 },
                 "comment" : {
-                    "size": 20,
-                    "type": "textarea",
-                    "cols": 30,
-                    "rows": 3
+                    "type": "date",
+                    "dateFormat": "DD.MM.YYYY"
                 }
             }
         }
