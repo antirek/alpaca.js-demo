@@ -2,6 +2,7 @@ jQmbl = $.noConflict true
 
 app = 
   tpl: '@@include("../../tmp/widget.html")'
+  thanks: '@@include("../../tmp/thanks.html")'
   styles: '@@include("../../build/css/widget.css")'
 
 
@@ -56,7 +57,7 @@ wForm.loadConfig (data)->
       .done ()->
         console.log 'send'
         jQmbl('#form').alpaca("destroy");
-        jQmbl('#form').html('thanks!!!');
+        jQmbl('#form').html('').hide().append(app.thanks).show();
       .fail ()->
         console.log 'fail'
     

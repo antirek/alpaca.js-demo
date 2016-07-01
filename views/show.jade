@@ -5,7 +5,9 @@ block content
     
 
 
-    button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='') просто кнопка
+    //button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='') просто кнопка
+
+    p кнопка
 
     div.main
 
@@ -16,8 +18,14 @@ block content
           div#container
         
 
-
     script(type='text/javascript', src='/include/widget.js/#{key}')
     //link(type='text/css', rel='stylesheet', href='/include/style.css')  
+
+
+    h4 Код для вставки
+    pre
+        = '<div id="container"></div>'
+        br
+        = '<script type="text/javascript" src="http://webform.mobilon.ru/include/widget.js/demo"></script>'
 
     

@@ -36,7 +36,7 @@ config =
     src:
       js: './src/javascript/widget.js'
       css: './src/stylesheets/widget.scss'
-      jade: './src/templates/widget.jade'
+      jade: './src/templates/*.jade'
       index: './src/index.jade'
     watch:
       js: './src/javascript/*.js'
