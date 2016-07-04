@@ -75,6 +75,7 @@ gulp.task 'style:build', ()->
     style: 'nested',
     loadPath: [
       './src/stylesheets/',
+      config.bowerDir + '/eonasdan-bootstrap-datetimepicker/src/sass/',
       config.bowerDir + '/bootstrap-sass/assets/stylesheets'
     ]
   }
@@ -89,7 +90,9 @@ gulp.task 'js:build', ()->
     './bower_components/jquery/dist/jquery.min.js',
     './bower_components/bootstrap/dist/js/bootstrap.min.js',
     './bower_components/handlebars/handlebars.min.js',
-    './bower_components/alpaca/dist/alpaca/bootstrap/alpaca.min.js'
+    './bower_components/alpaca/dist/alpaca/bootstrap/alpaca.min.js',
+    './bower_components/moment/min/moment.min.js',
+    './bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
     './src/javascript/widget.coffee'
   ]
   .pipe gulpif(/[.]coffee$/, coffee({bare: true}))

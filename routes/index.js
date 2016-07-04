@@ -22,6 +22,9 @@ router.post('/send/:key', function (req, res, next) {
 	res.send(req.body);
 
   mail.send('serge.dmitriev@gmail.com', 'test', JSON.stringify(req.body));
+
+  
+  
 });
 
 

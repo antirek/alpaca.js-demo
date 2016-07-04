@@ -5,8 +5,11 @@ app =
   thanks: '@@include("../../tmp/thanks.html")'
   styles: '@@include("../../build/css/widget.css")'
 
+ID = 'container123456_ertyy';
 
-jQmbl('#container').addClass('tbl_wrapper').append(app.tpl)
+document.write('<div id="' + ID + '"></div>')
+
+jQmbl('#' + ID).addClass('tbl_wrapper').append(app.tpl)
 
 loadStyles = (callback)->
   id = 'widget_styles'
@@ -28,7 +31,8 @@ loadStyles = (callback)->
 
 loadStyles()
 
-host = 'http://webform.mobilon.ru/'
+host = 'http://webform.mobilon.ru'
+key = '@@@key@@@'
 
 WForm = (options) ->
   loadConfig = (cb)->
@@ -41,15 +45,15 @@ WForm = (options) ->
   loadConfig: loadConfig
   bind: bind
 
-wForm = new WForm({key: '@@@key@@@'});
+wForm = new WForm({key: key});
 
 wForm.loadConfig (data)->
-  jQmbl('#buttonEmbedded').html(data.element.title)
-  jQmbl('#buttonEmbedded').removeClass('hide')
+  jQmbl('#buttonEmbedded67373737').html(data.element.title)
+  jQmbl('#buttonEmbedded67373737').removeClass('hide')
 
-  jQmbl("#myModal .modal-dialog").addClass(data.element.dialogWidthClass) if data.element.dialogWidthClass
+  jQmbl("#myModalForm67373737 .modal-dialog").addClass(data.element.dialogWidthClass) if data.element.dialogWidthClass
 
-  data.form.options.form.attributes.action = host + "/send/@@@key@@@"
+  data.form.options.form.attributes.action = host + "/send/" + key
   data.form.options.form.attributes.method = "post"
 
   data.form.options.form.buttons.submit.click = ()->
@@ -62,11 +66,10 @@ wForm.loadConfig (data)->
         console.log 'fail'
     
   wForm.bind '#form', data.form
-            
 
 
 # fix косяк с backdrop
-jQmbl "#myModal"
+jQmbl "#" + ID
   .on "shown.bs.modal", (event)->
     jQmbl ".modal-backdrop"
       .css "z-index", "-1";
