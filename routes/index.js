@@ -3,10 +3,20 @@ var router = express.Router();
 var path = require('path');
 var fs = require('fs');
 
+
 var config = require('../config');
 var Mail = require('../actions/mail');
+var Callback = require('../actions/callback');
 
 var mail = new Mail(config.mail);
+var callback = new Callback();
+
+var actionRunner = {
+  mail: mail,
+  callback: callback
+}
+
+
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -19,21 +29,32 @@ router.get('/show/:key', function(req, res, next) {
 
 
 router.post('/send/:key', function (req, res, next) {
-	res.send(req.body);
+  var key = req.params.key;
+  var configForWidget = fs.readFileSync(path.resolve(__dirname + '/../configs/' + key + '.json'), 'utf8');
+  
+  configForWidget = JSON.parse(configForWidget);
 
-  mail.send('serge.dmitriev@gmail.com', 'test', JSON.stringify(req.body));
+  if (configForWidget.actions) {
+    configForWidget.actions.forEach( function(action) {
+      console.log('action:', action.type);
+      if (actionRunner[action.type]) {
+        console.log('run action', action, req.body);
+        actionRunner[action.type].run(action, req.body);
+      }
+    })
+  }
 
-
-
+  res.send(req.body);
+  
 });
 
-
+/*
 router.get('/configs/:key', function(req, res, next) {
   var key = req.params.key;
   res.setHeader('Content-Type', 'application/json');
   res.sendFile(path.resolve(__dirname + '/../configs/' + key + '.json'));
 });
-
+*/
 
 router.get('/include/widget.js/:key', function(req, res, next) {
   var key = req.params.key;

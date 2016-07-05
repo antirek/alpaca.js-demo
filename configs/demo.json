@@ -56,5 +56,23 @@
                 }
             }
         }
-    }
+    },
+    "actions": [
+        {
+            "type": "mail",
+            "to": "serge.dmitriev@gmail.com",
+            "subject": "new request",
+            "template": "html"
+        },
+        {
+            "type": "callback",
+            "key": "ewuroiewio",
+            "phoneField": "phone"
+        },
+        {
+            "type": "lead",
+            "key": "sdfsdfdsfdsfsdf",
+            "phoneField": "phone"
+        }
+    ]
 }

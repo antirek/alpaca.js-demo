@@ -17,10 +17,15 @@ var Mail = function (options) {
             }
             console.log('Message sent: ' + info.response);
         });
-    }
+    };
+
+    var run = function (config, data) {
+        send(config.to, config.subject, JSON.stringify(data));
+    };
 
     return {
-        send: send
+        send: send,
+        run: run
     }
 }
 
