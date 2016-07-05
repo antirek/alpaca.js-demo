@@ -31,13 +31,16 @@ loadStyles = (callback)->
 
 loadStyles()
 
-host = 'http://webform.mobilon.ru'
+host = '@@@host@@@'
 key = '@@@key@@@'
 
 WForm = (options) ->
   loadConfig = (cb)->
-    serverUrl = host + '/configs/' + options['key'];
-    jQmbl.getJSON(serverUrl, cb);
+    #serverUrl = host + '/configs/' + options['key'];
+    #jQmbl.getJSON(serverUrl, cb);
+    config = '@@@config@@@'
+    cb JSON.parse config
+
 
   bind = (selector, form)->
     jQmbl(selector).alpaca(form);
@@ -47,8 +50,10 @@ WForm = (options) ->
 
 wForm = new WForm({key: key});
 
+
 wForm.loadConfig (data)->
   jQmbl('#buttonEmbedded67373737').html(data.element.title)
+  jQmbl('#buttonEmbedded67373737').addClass(data.element.buttonClass) if data.element.buttonClass
   jQmbl('#buttonEmbedded67373737').removeClass('hide')
 
   jQmbl("#myModalForm67373737 .modal-dialog").addClass(data.element.dialogWidthClass) if data.element.dialogWidthClass

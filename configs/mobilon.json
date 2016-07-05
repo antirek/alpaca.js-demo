@@ -3,7 +3,8 @@
         "selector": "#button",
         "title": "Оставить контакты",
         "color": "",
-        "dialogWidthClass": "modal-sm"
+        "dialogWidthClass": "modal-sm",
+        "buttonClass": "btn-danger"
     },
     "form": {
         "schema": {
@@ -36,7 +37,9 @@
                     "method":"post"
                 },
                 "buttons":{
-                    "submit":{}
+                    "submit":{
+                        "title": "Отправить"
+                    }
                 }
             },
             "helper": "Оставьте нам свои контакты, и мы обязательно с вами свяжемся",

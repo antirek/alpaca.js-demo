@@ -23,8 +23,8 @@ router.post('/send/:key', function (req, res, next) {
 
   mail.send('serge.dmitriev@gmail.com', 'test', JSON.stringify(req.body));
 
-  
-  
+
+
 });
 
 
@@ -39,11 +39,22 @@ router.get('/include/widget.js/:key', function(req, res, next) {
   var key = req.params.key;
   console.log('key:', key);
 
-  var contents = fs.readFileSync(path.resolve(__dirname + '/../build/widget.js'), 'utf8');
-  contents = contents.replace(/@@@key@@@/g, key);
+  var widgetjs = fs.readFileSync(path.resolve(__dirname + '/../build/widget.js'), 'utf8');
 
+  var configForWidget = fs.readFileSync(path.resolve(__dirname + '/../configs/' + key + '.json'), 'utf8');
+
+  configForWidget = JSON.stringify(JSON.parse(configForWidget));
+  configForWidget = configForWidget.replace(/\'/g,'\\\'');
+
+  //config = config.replace(/\r|\n/g, '');
+
+  widgetjs = widgetjs.replace(/@@@config@@@/g, configForWidget);
+  widgetjs = widgetjs.replace(/@@@key@@@/g, key);
+  widgetjs = widgetjs.replace(/@@@host@@@/g, config.host);
+
+  
   res.set('Content-Type', 'text/javascript');
-  res.send(contents);
+  res.send(widgetjs);
 });
 
 /*

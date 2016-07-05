@@ -3,7 +3,8 @@
         "selector": "#container123445",
         "title": "Записаться на тест-драйв",
         "color": "",
-        "dialogWidthClass": "modal-sm"
+        "dialogWidthClass": "modal-sm",
+        "buttonClass": "btn-success"
     },
     "form": {
         "schema": {
@@ -28,12 +29,12 @@
         },
         "options": {
             "form":{
-                "attributes":{
-                    "action":"http://localhost:3000/send/@@@key@@@",
-                    "method":"post"
+                "attributes":{                    
                 },
                 "buttons":{
-                    "submit":{}
+                    "submit":{
+                        "title": "Записаться"
+                    }
                 }
             },
             "helper": "Оставьте нам свои контакты, и мы свяжемся с вами и уточним все детали",
