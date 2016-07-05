@@ -67,7 +67,7 @@
         {
             "type": "callback",
             "key": "yd8p1sk433",
-            "phoneField": "name"
+            "phoneField": "phone"
         },
         {
             "type": "lead",

@@ -11,7 +11,7 @@ var Mail = function (options) {
             text: text
         };
          
-        transporter.sendMail(mailOptions, function(error, info){
+        transporter.sendMail(mailOptions, function (error, info) {
             if(error){
                 return console.log(error);
             }
@@ -20,11 +20,12 @@ var Mail = function (options) {
     };
 
     var run = function (config, data) {
+
         send(config.to, config.subject, JSON.stringify(data));
+
     };
 
     return {
-        send: send,
         run: run
     }
 }

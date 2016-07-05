@@ -17,9 +17,10 @@ var Callback = function (options) {
 
     var run = function (config, data) {
         //console.log('callback', config, data);
+        var phoneField = config.phoneField || 'phone';
 
         var url = prepareOrderUrl(config.key, {
-            number: data[config.phoneField]
+            number: data[phoneField]
         });
         console.log('callback url:', url);
         
@@ -30,7 +31,7 @@ var Callback = function (options) {
 
     return {
         run: run
-    }
-}
+    };
+};
 
 module.exports = Callback;
