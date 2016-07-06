@@ -48,7 +48,7 @@
                 "email" : {
                     "size": 20
                 },
-                "comment" : {
+                "date" : {
                     "type": "date",
                     "dateFormat": "DD.MM.YYYY"
                 }
